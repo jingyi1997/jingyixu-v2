@@ -325,3 +325,7 @@ enableGitInfo = false
 #    name = "Wo"
 #    url = "#about"
 #    weight = 1
+
+[services]
+  [services.googleAnalytics]
+    id = ""  # put your GA ID here when you want to enable it
