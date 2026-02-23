@@ -1274,7 +1274,7 @@ section#custom h1#publications + ul > li img[align="left"] {
 }
 
 /* hide items after N=6 by default */
-#updates-wrapper .updates-list li:nth-child(n+7) {
+#updates-wrapper .updates-list li:nth-child(n+9) {
   display: none;
 }
 
