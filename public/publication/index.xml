@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Jingyi Xu</title>
-    <link>http://localhost:1313/publication/</link>
+    <link>http://jingyixu.net/publication/</link>
     <description>Recent content in Publications on Jingyi Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -9,7 +9,7 @@
     <webMaster>jingyi@mail.nankai.edu.cn (Jingyi Xu)</webMaster>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/publication/" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jingyixu.net/publication/" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

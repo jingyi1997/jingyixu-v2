@@ -12,6 +12,8 @@ weight = 2
 
 +++
 
+* 04/2026: Give a talk on "How LLMs Are Changing the Way We Build AI Systems?" at UCF.
+* 02/2026: One **CVPR'26** paper on personalized image description is accepted.
 * 01/2026: One **ICLR'26** paper on data attribution is accepted.
 * 06/2025: Three **ICCV'25** papers on token merging, gaze target estimation and object counting are accepted.
 * 05/2025: One **MICCAI'25** paper on 3D human heart modeling is accepted.
