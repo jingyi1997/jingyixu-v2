@@ -42,6 +42,11 @@ enableGitInfo = false
 
 # Configure BlackFriday Markdown rendering.
 #   See: https://gohugo.io/getting-started/configuration/#configure-blackfriday
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [blackfriday]
   hrefTargetBlank = true  # `true` opens external links in a new tab.
 

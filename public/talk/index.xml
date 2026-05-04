@@ -1,1 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Recent &amp; Upcoming Talks on Jingyi Xu</title><link>http://jingyixu.net/talk/</link><description>Recent content in Recent &amp; Upcoming Talks on Jingyi Xu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jingyi@mail.nankai.edu.cn (Jingyi Xu)</managingEditor><webMaster>jingyi@mail.nankai.edu.cn (Jingyi Xu)</webMaster><copyright>&amp;copy; 2018</copyright><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://jingyixu.net/talk/" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on Jingyi Xu</title>
+    <link>http://localhost:1313/talk/</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on Jingyi Xu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>jingyi@mail.nankai.edu.cn (Jingyi Xu)</managingEditor>
+    <webMaster>jingyi@mail.nankai.edu.cn (Jingyi Xu)</webMaster>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/talk/" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>

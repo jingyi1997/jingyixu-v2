@@ -1177,6 +1177,7 @@ div.alert a:hover {
   height: auto;
   max-width: 100%;
   display: block;
+}
 
 /* --- Mobile fix for Publications list with left-aligned thumbnails --- */
 
@@ -1213,7 +1214,7 @@ div.alert a:hover {
   .home-section#publications li {
     padding-left: 0;
   }
-}}
+}
 
 /* Publications mobile fix */
 @media screen and (max-width: 768px) {
@@ -1231,23 +1232,22 @@ div.alert a:hover {
 
 /* ===== Publications: fix mobile/iPad weird layout ===== */
 
-/* Target ONLY the publications list in the custom section */
-section#custom h1#publications + ul {
+section#publications h1#publications + ul {
   list-style: none !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
 }
 
-section#custom h1#publications + ul > li {
+section#publications h1#publications + ul > li {
   list-style: none !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
   margin-bottom: 26px;
-  overflow: hidden; /* contain floated image */
+  overflow: hidden;
 }
 
 /* Desktop/tablet: image floated left */
-section#custom h1#publications + ul > li img[align="left"] {
+section#publications h1#publications + ul > li img[align="left"] {
   float: left !important;
   display: block;
   margin: 0 18px 12px 0 !important;
@@ -1258,7 +1258,7 @@ section#custom h1#publications + ul > li img[align="left"] {
 
 /* Mobile: stack image above text to avoid awkward wrapping */
 @media screen and (max-width: 768px) {
-  section#custom h1#publications + ul > li img[align="left"] {
+  section#publications h1#publications + ul > li img[align="left"] {
     float: none !important;
     margin: 0 auto 12px auto !important;
     width: 100% !important;

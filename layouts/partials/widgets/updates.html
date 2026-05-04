@@ -1,0 +1,19 @@
+{{ $page := .page }}
+<div class="row">
+  <div class="col-lg-12">
+    {{ with $page.Title }}<h1>{{ . | markdownify }}</h1>{{ end }}
+    <div id="updates-wrapper">
+      <ul class="updates-list">
+        {{ $page.Content }}
+      </ul>
+      <p><button id="updates-toggle" type="button">Show more</button></p>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('updates-toggle').addEventListener('click', function() {
+    var wrapper = document.getElementById('updates-wrapper');
+    var expanded = wrapper.classList.toggle('expanded');
+    this.textContent = expanded ? 'Show less' : 'Show more';
+  });
+</script>

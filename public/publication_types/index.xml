@@ -1,1 +1,14 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publication_types on Jingyi Xu</title><link>http://jingyixu.net/publication_types/</link><description>Recent content in Publication_types on Jingyi Xu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jingyi@mail.nankai.edu.cn (Jingyi Xu)</managingEditor><webMaster>jingyi@mail.nankai.edu.cn (Jingyi Xu)</webMaster><copyright>&amp;copy; 2018</copyright><atom:link href="http://jingyixu.net/publication_types/" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publication_types on Jingyi Xu</title>
+    <link>http://localhost:1313/publication_types/</link>
+    <description>Recent content in Publication_types on Jingyi Xu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>jingyi@mail.nankai.edu.cn (Jingyi Xu)</managingEditor>
+    <webMaster>jingyi@mail.nankai.edu.cn (Jingyi Xu)</webMaster>
+    <copyright>&amp;copy; 2018</copyright>
+    <atom:link href="http://localhost:1313/publication_types/" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>
