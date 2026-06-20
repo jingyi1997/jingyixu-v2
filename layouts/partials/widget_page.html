@@ -33,6 +33,8 @@
     var img = li.querySelector('img[align="left"]');
     if (!img) return;
 
+    var isMobile = window.innerWidth < 768;
+
     // Collect nodes after img, skipping leading <br> and whitespace
     var contentNodes = [];
     var node = img.nextSibling;
@@ -41,7 +43,7 @@
       var next = node.nextSibling;
       if (skipping) {
         if (node.nodeName === 'BR' ||
-            (node.nodeType === 3 && node.textContent.replace(/ /g,'').trim() === '')) {
+            (node.nodeType === 3 && node.textContent.replace(/\xa0/g,'').trim() === '')) {
           node = next; continue;
         }
         skipping = false;
@@ -59,18 +61,14 @@
       else break;
     }
 
-    // Keep title on one line
+    // Keep title on one line on desktop only
     var firstStrong = li.querySelector('strong');
-    if (firstStrong) firstStrong.style.whiteSpace = 'nowrap';
-
-    // Prepare image as flex item
-    img.removeAttribute('align');
-    img.style.cssText = 'display:block;width:200px;height:auto;flex-shrink:0;margin:0;';
+    if (firstStrong && !isMobile) firstStrong.style.whiteSpace = 'nowrap';
 
     // Strip leading spaces and &nbsp; from text nodes that follow a <br>
     for (var i = 1; i < contentNodes.length; i++) {
       if (contentNodes[i-1].nodeName === 'BR' && contentNodes[i].nodeType === 3)
-        contentNodes[i].textContent = contentNodes[i].textContent.replace(/^[  ]+/, '');
+        contentNodes[i].textContent = contentNodes[i].textContent.replace(/^[ \xa0]+/, '');
     }
 
     // Wrap remaining content in a div
@@ -78,9 +76,16 @@
     textDiv.style.cssText = 'flex:1;min-width:0;';
     contentNodes.forEach(function(n) { textDiv.appendChild(n); });
 
-    // Rebuild li as flex row
+    // Rebuild li as flex row (desktop) or column (mobile)
     while (li.firstChild) li.removeChild(li.firstChild);
-    li.style.cssText = 'display:flex;align-items:flex-start;gap:16px;margin-bottom:36px;list-style:none;';
+    if (isMobile) {
+      img.style.cssText = 'display:block;width:100%;max-width:320px;height:auto;margin:0 auto;';
+      li.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:36px;list-style:none;';
+      textDiv.style.cssText = 'width:100%;';
+    } else {
+      img.style.cssText = 'display:block;width:200px;height:auto;flex-shrink:0;margin:0;';
+      li.style.cssText = 'display:flex;align-items:flex-start;gap:16px;margin-bottom:36px;list-style:none;';
+    }
     li.appendChild(img);
     li.appendChild(textDiv);
   });
