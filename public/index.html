@@ -405,6 +405,7 @@ My research interets lie in the field of Computer Vision and Deep Learning, with
     <div id="updates-wrapper">
       <ul class="updates-list">
         <ul>
+<li>06/2026: Three <strong>ECCV'26</strong> papers on diffusion transformers, shadow detection, and contrastive learning are accepted.</li>
 <li>04/2026: Give a talk on &ldquo;How LLMs Are Changing the Way We Build AI Systems?&rdquo; at UCF.</li>
 <li>02/2026: One <strong>CVPR'26</strong> paper on personalized image description is accepted.</li>
 <li>01/2026: One <strong>ICLR'26</strong> paper on data attribution is accepted.</li>
@@ -453,6 +454,9 @@ My research interets lie in the field of Computer Vision and Deep Learning, with
   <div class="col-lg-12">
     <h1 id="publications">Publications</h1>
 <ul>
+<li><img align="left" src="img/eccv26_diffusion.png" alt="drawing" width="200" height="120"/> <br>   <strong>Phase-Aligned RoPE for Mixed-Resolution Diffusion Transformer.</strong> <br>   <span style="color:gray"> Haoyu Wu</span>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Qiaomu Miao</span>, <span style="color:gray"> Dimitris Samaras</span>, <a href="https://hieulem.github.io/"><span style="color:gray">Hieu Le</span></a>. <br>   European Conference on Computer Vision (<strong>ECCV</strong>) 2026. <br> <br></li>
+<li><img align="left" src="img/eccv26_shadow.gif" alt="drawing" width="200" height="120"/> <br>   <strong>Cast and Attached Shadow Detection via Iterative Light and Geometry Reasoning.</strong> <br>   <span style="color:gray"> Shilin Hu</span>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Sagnik Das</span>, <span style="color:gray"> Dimitris Samaras</span>, <a href="https://hieulem.github.io/"><span style="color:gray">Hieu Le</span></a>. <br>   European Conference on Computer Vision (<strong>ECCV</strong>) 2026. <br> <br></li>
+<li><img align="left" src="img/eccv26_counting.png" alt="drawing" width="200" height="120"/> <br>   <strong>What is the Right Embedding Space for Contrastive Learning in Referring Expression Counting?</strong> <br>   <span style="color:gray"> Kostas Triaridis</span>, <span style="color:gray"> Panagiotis Kaliosis</span>, <span style="color:gray"> E-Ro Nguyen</span>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Dimitris Samaras</span>, <a href="https://hieulem.github.io/"><span style="color:gray">Hieu Le</span></a>. <br>   European Conference on Computer Vision (<strong>ECCV</strong>) 2026. <br> <br></li>
 <li><img align="left" src="img/cvpr26.png" alt="drawing" width="200" height="120"/> <br>   <strong>Personalized Image Descriptions from Attention Sequences.</strong> <br>   <span style="color:gray"> Ruoyu Xue</span>, <a href="https://hieulem.github.io/"><span style="color:gray">Hieu Le</span></a>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Sounak Mondal</span>, <span style="color:gray"> Abe Leite</span>, <span style="color:gray"> Gregory Zelinsky</span>, <span style="color:gray"> Minh Hoai</span>, <span style="color:gray"> Dimitris Samaras. </span> <br>   IEEE Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>) 2026. <br> <br></li>
 <li><img align="left" src="img/iclr26.png" alt="drawing" width="200" height="120"/> <br>   <strong>Learning to Weight Parameters for Data Attribution.</strong> <br>   <span style="color:gray"> Shuangqi Li</span>, <a href="https://hieulem.github.io/"><span style="color:gray">Hieu Le</span></a>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Mathieu Salzmann. </span> <br>   International Conference on Learning Representations (<strong>ICLR</strong>) 2026. <br> <br></li>
 <li><img align="left" src="img/cora.png" alt="drawing" width="200" height="120"/> <br>   <strong>CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation.</strong> <br>   <span style="color:gray"> Prantik Howlader</span>, <span style="color:gray"> Hoang Nguyen-Canh</span>, <span style="color:gray"> Srijan Das </span>, <strong>Jingyi Xu</strong>, <span style="color:gray"> Hieu Le </span>, <span style="color:gray"> Dimitris Samaras. </span> <br>   IEEE Winter Conference on Applications of Computer Vision (<strong>WACV</strong>) 2026. <br> <br></li>
@@ -509,6 +513,64 @@ My research interets lie in the field of Computer Vision and Deep Learning, with
   </section>
   
 
+
+<script>
+  document.querySelectorAll('#publications ul li').forEach(function(li) {
+    var img = li.querySelector('img[align="left"]');
+    if (!img) return;
+
+    
+    var contentNodes = [];
+    var node = img.nextSibling;
+    var skipping = true;
+    while (node) {
+      var next = node.nextSibling;
+      if (skipping) {
+        if (node.nodeName === 'BR' ||
+            (node.nodeType === 3 && node.textContent.replace(/ /g,'').trim() === '')) {
+          node = next; continue;
+        }
+        skipping = false;
+      }
+      contentNodes.push(node);
+      node = next;
+    }
+
+    
+    while (contentNodes.length > 0) {
+      var last = contentNodes[contentNodes.length - 1];
+      if (last.nodeName === 'BR' ||
+          (last.nodeType === 3 && last.textContent.trim() === ''))
+        contentNodes.pop();
+      else break;
+    }
+
+    
+    var firstStrong = li.querySelector('strong');
+    if (firstStrong) firstStrong.style.whiteSpace = 'nowrap';
+
+    
+    img.removeAttribute('align');
+    img.style.cssText = 'display:block;width:200px;height:auto;flex-shrink:0;margin:0;';
+
+    
+    for (var i = 1; i < contentNodes.length; i++) {
+      if (contentNodes[i-1].nodeName === 'BR' && contentNodes[i].nodeType === 3)
+        contentNodes[i].textContent = contentNodes[i].textContent.replace(/^[  ]+/, '');
+    }
+
+    
+    var textDiv = document.createElement('div');
+    textDiv.style.cssText = 'flex:1;min-width:0;';
+    contentNodes.forEach(function(n) { textDiv.appendChild(n); });
+
+    
+    while (li.firstChild) li.removeChild(li.firstChild);
+    li.style.cssText = 'display:flex;align-items:flex-start;gap:16px;margin-bottom:36px;list-style:none;';
+    li.appendChild(img);
+    li.appendChild(textDiv);
+  });
+</script>
 
 
 <div class="container">

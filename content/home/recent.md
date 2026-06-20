@@ -12,6 +12,7 @@ weight = 2
 
 +++
 
+* 06/2026: Three **ECCV'26** papers on diffusion transformers, shadow detection, and contrastive learning are accepted.
 * 04/2026: Give a talk on "How LLMs Are Changing the Way We Build AI Systems?" at UCF.
 * 02/2026: One **CVPR'26** paper on personalized image description is accepted.
 * 01/2026: One **ICLR'26** paper on data attribution is accepted.

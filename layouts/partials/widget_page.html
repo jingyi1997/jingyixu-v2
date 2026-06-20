@@ -28,6 +28,64 @@
   {{ end }}
 {{ end }}
 
+<script>
+  document.querySelectorAll('#publications ul li').forEach(function(li) {
+    var img = li.querySelector('img[align="left"]');
+    if (!img) return;
+
+    // Collect nodes after img, skipping leading <br> and whitespace
+    var contentNodes = [];
+    var node = img.nextSibling;
+    var skipping = true;
+    while (node) {
+      var next = node.nextSibling;
+      if (skipping) {
+        if (node.nodeName === 'BR' ||
+            (node.nodeType === 3 && node.textContent.replace(/ /g,'').trim() === '')) {
+          node = next; continue;
+        }
+        skipping = false;
+      }
+      contentNodes.push(node);
+      node = next;
+    }
+
+    // Remove trailing <br> and empty text nodes
+    while (contentNodes.length > 0) {
+      var last = contentNodes[contentNodes.length - 1];
+      if (last.nodeName === 'BR' ||
+          (last.nodeType === 3 && last.textContent.trim() === ''))
+        contentNodes.pop();
+      else break;
+    }
+
+    // Keep title on one line
+    var firstStrong = li.querySelector('strong');
+    if (firstStrong) firstStrong.style.whiteSpace = 'nowrap';
+
+    // Prepare image as flex item
+    img.removeAttribute('align');
+    img.style.cssText = 'display:block;width:200px;height:auto;flex-shrink:0;margin:0;';
+
+    // Strip leading spaces and &nbsp; from text nodes that follow a <br>
+    for (var i = 1; i < contentNodes.length; i++) {
+      if (contentNodes[i-1].nodeName === 'BR' && contentNodes[i].nodeType === 3)
+        contentNodes[i].textContent = contentNodes[i].textContent.replace(/^[  ]+/, '');
+    }
+
+    // Wrap remaining content in a div
+    var textDiv = document.createElement('div');
+    textDiv.style.cssText = 'flex:1;min-width:0;';
+    contentNodes.forEach(function(n) { textDiv.appendChild(n); });
+
+    // Rebuild li as flex row
+    while (li.firstChild) li.removeChild(li.firstChild);
+    li.style.cssText = 'display:flex;align-items:flex-start;gap:16px;margin-bottom:36px;list-style:none;';
+    li.appendChild(img);
+    li.appendChild(textDiv);
+  });
+</script>
+
 <!-- Page Footer -->
 {{ partial "footer_container.html" . }}
 {{ partial "footer.html" . }}
